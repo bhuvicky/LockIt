@@ -1,0 +1,3 @@
+rootProject.name='LockIt'
+include ':app', ':applock', ':appbase'
+

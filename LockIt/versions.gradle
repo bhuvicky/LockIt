@@ -1,0 +1,83 @@
+ext.deps = [:]
+
+def versions = [:]
+// Android
+versions.android = '1.1.0'
+versions.material = '1.0.0'
+versions.constraintlayout = '1.1.3'
+versions.multidex = '2.0.1'
+
+// JetPack
+versions.room = '2.2.4'
+versions.lifecycle = '2.1.0'
+
+
+// Dagger
+versions.dagger = '2.25.2'
+
+// Reactive
+versions.rxjava = '2.3.0'
+versions.rxandroid = '2.1.1'
+versions.rxbinding = '3.1.0'
+
+// Kotlin
+versions.kotlin = '1.3.61'
+
+// Testing
+versions.junit = '4.12'
+versions.extjunit = '1.1.1'
+versions.espresso = '3.2.0'
+
+deps.versions = versions
+
+def android = [:]
+android.appcompat = "androidx.appcompat:appcompat:$versions.android"
+android.recyclerview = "androidx.recyclerview:recyclerview:$versions.android"
+android.constraintlayout = "androidx.constraintlayout:constraintlayout:$versions.constraintlayout"
+android.material = "com.google.android.material:material:$versions.material"
+android.multidex = "androidx.multidex:multidex:$versions.multidex"
+deps.android = android
+
+def db = [:]
+db.room = "androidx.room:room-runtime:$versions.room"
+db.room_compiler = "androidx.room:room-compiler:$versions.room"
+deps.db = db
+
+def lifecycle = [:]
+// Extensions = ViewModel + LiveData
+lifecycle.extension = "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+lifecycle.compiler = "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
+lifecycle.reactive_streams = "androidx.lifecycle:lifecycle-reactivestreams:$versions.lifecycle"
+deps.lifecycle = lifecycle
+
+def reactive = [:]
+reactive.rxjava = "io.reactivex.rxjava2:rxkotlin:$versions.rxjava"
+reactive.rxandroid = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
+deps.reactive = reactive
+
+def rxbinding = [:]
+// Platform binding
+rxbinding.base = "com.jakewharton.rxbinding3:rxbinding:$versions.rxbinding"
+// AndroidX library binding
+rxbinding.appcompat = "com.jakewharton.rxbinding3:rxbinding-appcompat:$versions.rxbinding"
+rxbinding.recyclerview = "com.jakewharton.rxbinding3:rxbinding-recyclerview:$versions.rxbinding"
+rxbinding.material = "com.jakewharton.rxbinding3:rxbinding-material:$versions.rxbinding"
+deps.rxbinding = rxbinding
+
+def dagger2 = [:]
+dagger2.dagger = "com.google.dagger:dagger:$versions.dagger"
+dagger2.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+dagger2.android = "com.google.dagger:dagger-android:$versions.dagger"
+dagger2.androidsupport = "com.google.dagger:dagger-android-support:$versions.dagger"
+dagger2.androidprocessor = "com.google.dagger:dagger-android-processor:$versions.dagger"
+deps.dagger2 = dagger2
+
+def kotlin = [:]
+kotlin.stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
+deps.kotlin = kotlin
+
+def test = [:]
+test.junit = "junit:junit:$versions.junit"
+test.extjunit = "androidx.test.ext:junit:$versions.extjunit"
+test.expresso_core = "androidx.test.espresso:espresso-core:$versions.espresso"
+deps.test = test

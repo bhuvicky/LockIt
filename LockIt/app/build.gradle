@@ -1,0 +1,77 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+
+
+    defaultConfig {
+        applicationId "com.bhuvanesh.lockit"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.kotlin.stdlib
+
+    // Android
+    implementation deps.android.appcompat
+    implementation deps.android.recyclerview
+    implementation deps.android.material
+    implementation deps.android.multidex
+    implementation deps.android.constraintlayout
+
+    // Room
+    implementation deps.db.room
+    kapt deps.db.room_compiler
+
+    // Lifecycle
+    implementation deps.lifecycle.extension
+    implementation deps.lifecycle.compiler
+    implementation deps.lifecycle.reactive_streams
+
+    //Dagger
+//    api deps.dagger2.dagger
+    implementation deps.dagger2.dagger
+    kapt deps.dagger2.compiler
+    api deps.dagger2.android    // don't know what is "api" here.
+    api deps.dagger2.androidsupport
+    kapt deps.dagger2.androidprocessor
+
+    //Reactive
+    implementation deps.reactive.rxjava
+    implementation deps.reactive.rxandroid
+
+    //RxBinding
+    implementation deps.rxbinding.base
+    implementation deps.rxbinding.appcompat
+    implementation deps.rxbinding.recyclerview
+    implementation deps.rxbinding.material
+
+    implementation 'androidx.core:core-ktx:1.0.2'
+
+    // Testing
+    testImplementation deps.test.junit
+    androidTestImplementation deps.test.extjunit
+    androidTestImplementation deps.test.expresso_core
+
+    implementation project(':appbase')
+    implementation project(':applock')
+
+}
